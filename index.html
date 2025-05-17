@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" src="//msbdgu.click/a1467f79d5548667cb22/e587545dfb/?placementName=default"></script>
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Background Remover | AI-Powered Image Editing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4bb543;
+            --transparent-bg: repeating-conic-gradient(#f0f0f0 0% 25%, #ffffff 0% 50%) 50% / 20px 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth; /* For smooth scrolling for #links */
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Top Navigation Styles */
+        .top-nav {
+            background-color: white;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .nav-links-container {
+            max-width: 1200px; /* Align with .container */
+            margin: 0 auto;
+            padding: 0 2rem; /* Match .container padding */
+            display: flex;
+            justify-content: flex-end; /* Align the ul to the right */
+            align-items: center;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .top-nav li {
+            margin-left: 1.5rem; /* Spacing between items */
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .top-nav a:hover {
+            color: var(--primary-dark);
+            background-color: rgba(67, 97, 238, 0.05); /* Subtle hover background */
+        }
+        /* End Top Navigation Styles */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            /* margin-top: 1rem; /* Adjusted if nav takes space, but sticky nav handles this well */
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .tagline {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .upload-container:hover {
+            border-color: var(--primary);
+            background-color: rgba(67, 97, 238, 0.03);
+        }
+
+        .upload-container.active {
+            border-color: var(--success);
+            background-color: rgba(75, 181, 67, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-text {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .upload-text p {
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            -webkit-appearance: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .btn-disabled {
+            background-color: #e9ecef;
+            color: #adb5bd;
+            cursor: not-allowed;
+        }
+
+        .btn-disabled:hover {
+            background-color: #e9ecef;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .preview-container {
+            display: none;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .preview-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview-images {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .image-box-header {
+            padding: 0.8rem 1rem;
+            background-color: var(--light);
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .image-box-content {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .transparent-bg {
+            background: var(--transparent-bg);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .loading-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(67, 97, 238, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 300px;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-desc {
+            color: var(--gray);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: var(--gray);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .quality-options {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quality-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            background: #e9ecef;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        .quality-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+            .nav-links-container {
+                padding: 0 1rem; /* Match .container mobile padding */
+            }
+            .top-nav li {
+                margin-left: 1rem; /* Reduced spacing for nav items */
+            }
+            .top-nav a {
+                font-size: 0.9rem; /* Slightly smaller nav links on tablet */
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .preview-images {
+                flex-direction: column;
+            }
+
+            .image-box {
+                min-width: 100%;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .quality-options {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .upload-container {
+                padding: 2rem 1rem;
+                min-height: 250px;
+            }
+
+            .upload-icon {
+                font-size: 2.5rem;
+            }
+
+            .upload-text h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links-container {
+                justify-content: center; /* Center nav links on very small screens */
+            }
+            .top-nav ul {
+                justify-content: center; /* Ensure items within ul are also centered if they wrap */
+            }
+            .top-nav li {
+                margin: 0.25rem 0.5rem; /* Add some vertical margin if they stack/wrap heavily */
+            }
+             .top-nav a {
+                font-size: 0.85rem; /* Smaller nav links on mobile */
+            }
+        }
+
+
+        /* iOS specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .btn {
+                padding: 0.9rem 1.8rem;
+            }
+        }
+
+        /* Windows high contrast mode */
+        @media (forced-colors: active) {
+            .top-nav {
+                border-bottom: 1px solid canvasText; /* Ensure visibility in HCM */
+            }
+            .top-nav a {
+                color: LinkText;
+            }
+            .upload-container {
+                border: 2px dashed canvasText;
+            }
+            
+            .btn {
+                forced-color-adjust: none;
+                background-color: Highlight;
+                color: HighlightText;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-links-container">
+            <ul>
+                <li><a href="#" id="navHome">Home</a></li>
+                <!-- IMPORTANT: Replace "https://example.com/pricing" with your actual pricing page URL -->
+                <li><a href="https://otieu.com/4/9341253" target="_blank" id="navPricing">Pricing</a></li>
+                <li><a href="#featuresSection" id="navFeatures">Features</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-magic"></i>
+                <span>ProBG Remover</span>
+            </div>
+            <p class="tagline">Remove backgrounds from your images in seconds with our powerful AI technology. Perfect for product photos, portraits, and more.</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-container" id="uploadContainer">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="upload-text">
+                    <h3>Upload Your Image</h3>
+                    <p>Drag & drop your image here or click to browse files</p>
+                </div>
+                <button class="btn" id="selectFileBtn">Select Image</button>
+                <input type="file" id="fileInput" class="file-input" accept="image/*">
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+
+            <div class="loading-container" id="loadingContainer">
+                <div class="spinner"></div>
+                <div class="loading-text">Removing background...</div>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                <p>Please wait while our AI processes your image</p>
+            </div>
+
+            <div class="preview-container" id="previewContainer">
+                <div class="preview-title">
+                    <span>Your Results</span>
+                    <button class="btn btn-secondary" id="newImageBtn">
+                        <i class="fas fa-plus"></i> New Image
+                    </button>
+                </div>
+                <div class="preview-images">
+                    <div class="image-box">
+                        <div class="image-box-header">Original Image</div>
+                        <div class="image-box-content">
+                            <img id="originalImage" class="image-preview" src="" alt="Original image">
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="image-box-header">Background Removed</div>
+                        <div class="image-box-content transparent-bg">
+                            <img id="resultImage" class="image-preview" src="" alt="Result image">
+                        </div>
+                    </div>
+                </div>
+                <div class="quality-options">
+                    <button class="quality-btn active" data-quality="hd">HD Quality</button>
+                    <button class="quality-btn" data-quality="standard">Standard Quality</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download Result
+                    </button>
+                    <button class="btn btn-secondary" id="tryAnotherBtn">
+                        <i class="fas fa-sync-alt"></i> Try Another
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Added id="featuresSection" here -->
+        <div class="features" id="featuresSection">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Instant Processing</h3>
+                <p class="feature-desc">Our AI removes backgrounds in seconds, saving you hours of manual work.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <h3 class="feature-title">Precise Edges</h3>
+                <p class="feature-desc">Get clean, professional cuts around hair, fur, and complex shapes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="feature-title">Secure & Private</h3>
+                <p class="feature-desc">Your images are processed securely and never stored permanently.</p>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/nawaj.uddin" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/nawaj.17/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nawaj-uddin-666110351/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@PowerfulLifeLessonsBD" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+
+        <footer>
+            <p>© <span id="currentYear"></span> ProBG Remover. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // DOM Elements
+            const uploadContainer = document.getElementById('uploadContainer');
+            const fileInput = document.getElementById('fileInput');
+            const selectFileBtn = document.getElementById('selectFileBtn');
+            const previewContainer = document.getElementById('previewContainer');
+            const loadingContainer = document.getElementById('loadingContainer');
+            const originalImage = document.getElementById('originalImage');
+            const resultImage = document.getElementById('resultImage');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const tryAnotherBtn = document.getElementById('tryAnotherBtn');
+            const newImageBtn = document.getElementById('newImageBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const progressBar = document.getElementById('progressBar');
+            const qualityBtns = document.querySelectorAll('.quality-btn');
+            
+            // API Configuration
+            const API_KEY = 'tgghppVrJHTdHoTmAggKXi7a'; // Replace with your actual API key if needed for deployment
+            const API_URL = 'https://api.remove.bg/v1.0/removebg';
+            
+            // State variables
+            let currentQuality = 'hd';
+            let processedImageBlob = null;
+            let processedImageUrl = null;
+            
+            // Event Listeners
+            selectFileBtn.addEventListener('click', () => fileInput.click());
+            tryAnotherBtn.addEventListener('click', resetUploader);
+            newImageBtn.addEventListener('click', resetUploader);
+            downloadBtn.addEventListener('click', downloadResult);
+            
+            // Quality buttons
+            qualityBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    qualityBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentQuality = this.dataset.quality;
+                    // If an image is already processed, you might want to re-process or indicate that quality applies to next upload.
+                    // For now, it applies to the next processing or download if API supports quality on download.
+                    // The remove.bg API generally sets quality at processing time.
+                });
+            });
+            
+            // Handle file selection
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            // Drag and drop functionality
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadContainer.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadContainer.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadContainer.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                uploadContainer.classList.add('active');
+            }
+            
+            function unhighlight() {
+                uploadContainer.classList.remove('active');
+            }
+            
+            uploadContainer.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length) {
+                    handleFiles(files);
+                }
+            }
+            
+            function handleFileSelect(e) {
+                if (e.target.files.length) {
+                    handleFiles(e.target.files);
+                }
+            }
+            
+            function handleFiles(files) {
+                const file = files[0];
+                
+                // Validate file type
+                if (!file.type.match('image.*')) {
+                    showError('Please select an image file (JPEG, PNG, etc.)');
+                    return;
+                }
+                
+                // Validate file size (remove.bg has limits, typically around 12MB, but good to have a client-side check)
+                // The API docs mention "up to 12 megabytes". Let's use 12MB.
+                const maxSizeInBytes = 12 * 1024 * 1024; 
+                if (file.size > maxSizeInBytes) {
+                    showError(`File size too large (max ${maxSizeInBytes / (1024*1024)}MB). Please select a smaller image.`);
+                    return;
+                }
+                
+                hideError();
+                
+                // Display original image
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    originalImage.src = e.target.result;
+                    
+                    // Show loading state
+                    uploadContainer.style.display = 'none';
+                    loadingContainer.style.display = 'flex';
+                    progressBar.style.width = '0%'; // Reset progress bar
+                    
+                    // Simulate initial progress
+                    let progress = 0;
+                    const interval = setInterval(() => {
+                        progress += 5;
+                        if (progress <= 90) { // Stop simulation before API call completes
+                           progressBar.style.width = `${progress}%`;
+                        } else {
+                            clearInterval(interval);
+                        }
+                    }, 100); // Faster simulation
+                    
+                    // Call the actual API
+                    callBackgroundRemovalAPI(file, interval); // Pass interval to clear it if API fails early
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            function callBackgroundRemovalAPI(file, progressInterval) {
+                const formData = new FormData();
+                formData.append('image_file', file);
+                formData.append('size', 'auto'); // 'auto' is default and good. Other options: 'preview', 'full', specific widths.
+                
+                // remove.bg API doesn't have a direct 'hd'/'standard' quality parameter in the same way for the main endpoint.
+                // 'size' parameter can influence output dimensions.
+                // For "HD", we usually rely on 'size=auto' to get the best possible resolution.
+                // The API might have different plans for HD downloads, but the processing itself aims for best quality.
+                // If there was a specific param like 'format=hdpng' vs 'format=png', we'd use it.
+                // For now, currentQuality variable can be used for filename or if API has future options.
+
+                fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'X-Api-Key': API_KEY
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    clearInterval(progressInterval); // Clear simulation interval
+                    if (!response.ok) {
+                        // Try to parse error from remove.bg JSON response
+                        return response.json().then(errData => {
+                            const errorMessages = errData.errors && errData.errors.map(e => e.title).join(', ');
+                            throw new Error(errorMessages || `API Error: ${response.statusText}`);
+                        }).catch(() => {
+                            // Fallback if parsing error JSON fails
+                            throw new Error(`API Request Failed: ${response.status} ${response.statusText}`);
+                        });
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    progressBar.style.width = '100%';
+                    
+                    if (processedImageUrl) {
+                        URL.revokeObjectURL(processedImageUrl);
+                    }
+                    processedImageBlob = blob;
+                    processedImageUrl = URL.createObjectURL(blob);
+                    resultImage.src = processedImageUrl;
+                    
+                    setTimeout(() => {
+                        loadingContainer.style.display = 'none';
+                        previewContainer.style.display = 'block';
+                    }, 300); // Shorter delay after 100%
+                })
+                .catch(error => {
+                    clearInterval(progressInterval); // Ensure interval is cleared on error
+                    console.error('Error:', error);
+                    showError(error.message || 'Failed to process image. Check console for details.');
+                    resetUploader(); // Go back to upload state
+                    loadingContainer.style.display = 'none'; // Hide loader
+                    uploadContainer.style.display = 'flex'; // Show uploader
+                });
+            }
+            
+            function downloadResult() {
+                if (!processedImageBlob || !processedImageUrl) {
+                    showError('No processed image available to download.');
+                    return;
+                }
+                
+                const filename = `ProBG_Removed_${new Date().toISOString().slice(0,10)}_${currentQuality}.png`;
+                const a = document.createElement('a');
+                a.href = processedImageUrl;
+                a.download = filename; 
+                document.body.appendChild(a);
+                a.click();
+                
+                setTimeout(() => { // Cleanup anchor
+                    document.body.removeChild(a);
+                }, 100);
+
+                // iOS download handling was a good thought, but createObjectURL + anchor click usually works for blobs.
+                // If specific iOS issues arise, the FileReader to dataURL approach could be reinstated.
+            }
+            
+            function resetUploader() {
+                fileInput.value = ''; // Clear the file input
+                previewContainer.style.display = 'none';
+                loadingContainer.style.display = 'none';
+                uploadContainer.style.display = 'flex';
+                progressBar.style.width = '0%';
+                originalImage.src = ""; // Clear previous original image
+                resultImage.src = "";   // Clear previous result image
+                
+                if (processedImageUrl) {
+                    URL.revokeObjectURL(processedImageUrl);
+                }
+                processedImageBlob = null;
+                processedImageUrl = null;
+                
+                hideError();
+            }
+            
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                uploadContainer.classList.remove('active'); // In case it was active from drag
+                // Scroll to error message for better visibility
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            function hideError() {
+                errorMessage.style.display = 'none';
+            }
+            
+            // Ensure proper cleanup when page is unloaded
+            window.addEventListener('beforeunload', function() {
+                if (processedImageUrl) {
+                    URL.revokeObjectURL(processedImageUrl);
+                }
+            });
+        });
+    </script>
+  <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="wa51633857a" data-domain="//msbdgu.click" data-affquery="/a12477ec2f2835897d82/a51633857a/?placementName=default"><script src="//msbdgu.click/js/responsive.js" async></script></ins>
+</body>
+</html>
