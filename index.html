@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="//poqc4.sbs/a1467f79d5548667cb22/636e89f7d7/?placementName=default"></script>
+    <!-- Ad Script (keeping as is, assuming it's required by the user) -->
     <script type="text/javascript" src="//poqc4.sbs/0e647a30d2457d1e44b3/dbf59b18b6/?placementName=default"></script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BG Remover Pro | AI-Powered Image Editing</title>
+
+    <!-- FAVICON - New Requirement -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/scissors.png"> 
+    <!-- IMPORTANT: Replace 'https://img.icons8.com/color/48/000000/scissors.png' with your actual favicon file (e.g., 'favicon.png' if in the same directory) -->
 
     <!-- SEO and Social Sharing Meta Tags -->
     <meta name="description" content="Remove backgrounds from your images in seconds with our powerful AI technology. Perfect for product photos, portraits, and more.">
@@ -107,7 +113,6 @@
         header {
             text-align: center;
             margin-bottom: 1rem;
-            /* margin-top: 1rem; /* Adjusted if nav takes space, but sticky nav handles this well */
         }
 
         .logo {
@@ -185,6 +190,13 @@
             color: var(--gray);
         }
 
+        /* Added for upload info */
+        .upload-info {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
         .btn {
             display: inline-block;
             padding: 0.8rem 1.8rem;
@@ -216,6 +228,12 @@
             background-color: rgba(67, 97, 238, 0.1);
             box-shadow: none;
             transform: none;
+        }
+        
+        /* New button styles for background options */
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
         }
 
         .btn-disabled {
@@ -414,7 +432,7 @@
         }
 
         .quality-options {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -434,6 +452,67 @@
         .quality-btn.active {
             background: var(--primary);
             color: white;
+        }
+
+        /* New styles for background options */
+        .background-options {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #e9ecef;
+            text-align: center;
+        }
+
+        .background-options h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .background-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .background-controls input[type="color"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 4px;
+            overflow: hidden; /* To hide default borders */
+        }
+
+        .background-controls input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+        .background-controls input[type="color"]::-webkit-color-swatch {
+            border: 1px solid #ddd; /* subtle border */
+            border-radius: 4px;
+        }
+        .background-controls input[type="color"]::-moz-color-swatch-wrapper {
+            padding: 0;
+        }
+        .background-controls input[type="color"]::-moz-color-swatch {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .bg-btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .bg-btn-container label {
+            font-size: 0.85rem;
+            color: var(--gray);
         }
 
         /* Mobile-specific optimizations */
@@ -474,9 +553,13 @@
                 max-width: 300px;
             }
 
-            .quality-options {
-                flex-direction: row;
+            .quality-options, .background-controls {
+                flex-direction: column; /* Stack on mobile */
                 align-items: center;
+            }
+            .quality-btn, .background-controls .btn, .background-controls input[type="color"] {
+                width: 100%; /* Full width for buttons/inputs */
+                max-width: 250px; /* Limit max width for readability */
             }
 
             .upload-container {
@@ -541,10 +624,10 @@
         <div class="nav-links-container">
             <ul>
                 <li><a href="#" id="navHome">Home</a></li>
-                <li><a href="https://drive.usercontent.google.com/download?id=1Jd19cQBJsb5cCaXI2kPy0WPk0t_zehLd" target="_blank" rel="noopener noreferrer" id="navDownloadApp" class="nav-download-btn"><i class="fab fa-android"></i> Download App</a></li>
-                <!-- IMPORTANT: Replace "https://example.com/pricing" with your actual pricing page URL -->
+                <li><a href="https://drive.google.com/uc?export=download&id=1Jd19cQBJsb5cCaXI2kPy0WPk0t_zehLd" target="_blank" rel="noopener noreferrer" id="navDownloadApp" class="nav-download-btn"><i class="fab fa-android"></i> Get App</a></li>
+                <!-- IMPORTANT: Replace "https://example.com/pricing" with your actual c page URL -->
                 <li><a href="https://otieu.com/4/9379536" target="_blank" id="navPricing">Pricing</a></li>
-                <li><a href="#featuresSection" id="navFeatures">Features</a></li>
+                <li><a href="https://otieu.com/4/9411593" target="_blank" id="navFeatures">Features</a></li>
             </ul>
         </div>
     </nav>
@@ -553,7 +636,7 @@
         <header>
             <div class="logo">
                 <i class="fas fa-magic"></i>
-                <span>BG Remover Pro</span>
+                <span>BG Remover Pro Free</span>
             </div>
             <p class="tagline">Remove backgrounds from your images in seconds with our powerful AI technology. Perfect for product photos, portraits, and more.</p>
         </header>
@@ -566,9 +649,11 @@
                 <div class="upload-text">
                     <h3>Upload Your Image</h3>
                     <p>Drag & drop your image here or click to browse files</p>
+                    <!-- NEW: Upload information -->
+                    <p class="upload-info">Supported formats: JPG, PNG, WebP, HEIC. Max size: 12 MB.</p>
                 </div>
                 <button class="btn" id="selectFileBtn">Select Image</button>
-                <input type="file" id="fileInput" class="file-input" accept="image/*">
+                <input type="file" id="fileInput" class="file-input" accept="image/jpeg, image/png, image/webp, image/heic">
                 <div class="error-message" id="errorMessage"></div>
             </div>
 
@@ -602,10 +687,34 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="quality-options">
                     <button class="quality-btn active" data-quality="hd">HD Quality</button>
                     <button class="quality-btn" data-quality="standard">Standard Quality</button>
                 </div>
+
+                <!-- NEW: Background Options -->
+                <div class="background-options">
+                    <h4>Add New Background</h4>
+                    <div class="background-controls">
+                        <button class="btn btn-secondary btn-small" id="uploadBgImageBtn">
+                            <i class="fas fa-image"></i> Upload Image
+                        </button>
+                        <!-- Added accept for common image formats for background -->
+                        <input type="file" id="bgFileInput" class="file-input" accept="image/jpeg, image/png, image/webp">
+                        
+                        <div class="bg-btn-container">
+                            <input type="color" id="bgColorPicker" value="#ffffff" title="Choose solid color">
+                            <label for="bgColorPicker">Solid Color</label>
+                        </div>
+                        
+                        <button class="btn btn-secondary btn-small" id="transparentBgBtn">
+                            <i class="fas fa-grip-lines"></i> Transparent
+                        </button>
+                    </div>
+                </div>
+                <!-- END NEW: Background Options -->
+
                 <div class="action-buttons">
                     <button class="btn" id="downloadBtn">
                         <i class="fas fa-download"></i> Download Result
@@ -682,37 +791,62 @@
             const progressBar = document.getElementById('progressBar');
             const qualityBtns = document.querySelectorAll('.quality-btn');
             
+            // NEW BACKGROUND ELEMENTS
+            const uploadBgImageBtn = document.getElementById('uploadBgImageBtn');
+            const bgFileInput = document.getElementById('bgFileInput');
+            const bgColorPicker = document.getElementById('bgColorPicker');
+            const transparentBgBtn = document.getElementById('transparentBgBtn');
+
             // API Configuration
-            const API_KEY = 'tgghppVrJHTdHoTmAggKXi7a'; // Replace with your actual API key if needed for deployment
+            const API_KEY = 'tgghppVrJHTdHoTmAggKXi7a'; // Replace with your actual API key for deployment
             const API_URL = 'https://api.remove.bg/v1.0/removebg';
             
             // State variables
             let currentQuality = 'hd';
+            let originalFile = null; // Stores the original image File object
             let processedImageBlob = null;
             let processedImageUrl = null;
+            let selectedBgImageFile = null; // Stores the background image File object
+            let selectedBgColor = null; // Stores the background color (hex string)
             
+            // Constants for file validation
+            const MAX_IMAGE_SIZE_MB = 12; // remove.bg free tier limit
+            const MAX_IMAGE_SIZE_BYTES = MAX_IMAGE_SIZE_MB * 1024 * 1024;
+            const SUPPORTED_INPUT_FORMATS = ['image/jpeg', 'image/png', 'image/webp', 'image/heic'];
+            const SUPPORTED_BG_FORMATS = ['image/jpeg', 'image/png', 'image/webp']; // remove.bg background image only supports these
+
             // Event Listeners
             selectFileBtn.addEventListener('click', () => fileInput.click());
             tryAnotherBtn.addEventListener('click', resetUploader);
             newImageBtn.addEventListener('click', resetUploader);
             downloadBtn.addEventListener('click', downloadResult);
             
+            // NEW BACKGROUND LISTENERS
+            uploadBgImageBtn.addEventListener('click', () => bgFileInput.click());
+            bgFileInput.addEventListener('change', handleBgFileSelect);
+            bgColorPicker.addEventListener('input', handleBgColorSelect); // 'input' for real-time changes
+            transparentBgBtn.addEventListener('click', handleTransparentBgSelect);
+
             // Quality buttons
             qualityBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
+                    if (!originalFile) return; // Only allow quality change if an image is loaded
                     qualityBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentQuality = this.dataset.quality;
-                    // If an image is already processed, you might want to re-process or indicate that quality applies to next upload.
-                    // For now, it applies to the next processing or download if API supports quality on download.
-                    // The remove.bg API generally sets quality at processing time.
+                    // Re-process with new quality (affects 'size' parameter for remove.bg)
+                    processImageWithCurrentSettings(); 
                 });
             });
             
-            // Handle file selection
-            fileInput.addEventListener('change', handleFileSelect);
+            // Handle file selection for foreground image
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFiles(e.target.files);
+                }
+            });
             
-            // Drag and drop functionality
+            // Drag and drop functionality for foreground image
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 uploadContainer.addEventListener(eventName, preventDefaults, false);
             });
@@ -748,69 +882,135 @@
                 }
             }
             
-            function handleFileSelect(e) {
-                if (e.target.files.length) {
-                    handleFiles(e.target.files);
-                }
-            }
-            
             function handleFiles(files) {
                 const file = files[0];
                 
-                // Validate file type
-                if (!file.type.match('image.*')) {
-                    showError('Please select an image file (JPEG, PNG, etc.)');
+                // Validate file type for foreground image
+                if (!SUPPORTED_INPUT_FORMATS.includes(file.type)) {
+                    showError(`Unsupported file type. Please select from ${SUPPORTED_INPUT_FORMATS.map(t => t.split('/')[1].toUpperCase()).join(', ')}.`);
                     return;
                 }
                 
-                // Validate file size (remove.bg has limits, typically around 12MB, but good to have a client-side check)
-                // The API docs mention "up to 12 megabytes". Let's use 12MB.
-                const maxSizeInBytes = 12 * 1024 * 1024; 
-                if (file.size > maxSizeInBytes) {
-                    showError(`File size too large (max ${maxSizeInBytes / (1024*1024)}MB). Please select a smaller image.`);
+                // Validate file size
+                if (file.size > MAX_IMAGE_SIZE_BYTES) {
+                    showError(`File size too large (max ${MAX_IMAGE_SIZE_MB}MB). Please select a smaller image.`);
                     return;
                 }
                 
                 hideError();
+                originalFile = file; // Store the original file
+                selectedBgImageFile = null; // Reset background image selection
+                selectedBgColor = null; // Reset background color selection
+                bgColorPicker.value = '#ffffff'; // Reset color picker to white (or default)
                 
-                // Display original image
+                // Display original image preview
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     originalImage.src = e.target.result;
-                    
-                    // Show loading state
-                    uploadContainer.style.display = 'none';
-                    loadingContainer.style.display = 'flex';
-                    progressBar.style.width = '0%'; // Reset progress bar
-                    
-                    // Simulate initial progress
-                    let progress = 0;
-                    const interval = setInterval(() => {
-                        progress += 5;
-                        if (progress <= 90) { // Stop simulation before API call completes
-                           progressBar.style.width = `${progress}%`;
-                        } else {
-                            clearInterval(interval);
-                        }
-                    }, 100); // Faster simulation
-                    
-                    // Call the actual API
-                    callBackgroundRemovalAPI(file, interval); // Pass interval to clear it if API fails early
+                    // Immediately process with transparent background as initial state
+                    processImageWithCurrentSettings(); 
                 };
                 reader.readAsDataURL(file);
             }
-            
+
+            // NEW BACKGROUND HANDLERS
+            function handleBgFileSelect(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                if (!originalFile) { // Ensure an original image is loaded first
+                    showError('Please upload a foreground image first.');
+                    bgFileInput.value = ''; // Clear background file input
+                    return;
+                }
+
+                if (!SUPPORTED_BG_FORMATS.includes(file.type)) {
+                    showError(`Unsupported background image type. Please select from ${SUPPORTED_BG_FORMATS.map(t => t.split('/')[1].toUpperCase()).join(', ')}.`);
+                    // Reset file input for background
+                    bgFileInput.value = '';
+                    return;
+                }
+
+                if (file.size > MAX_IMAGE_SIZE_BYTES) {
+                    showError(`Background image file size too large (max ${MAX_IMAGE_SIZE_MB}MB).`);
+                    bgFileInput.value = '';
+                    return;
+                }
+                
+                hideError();
+                selectedBgImageFile = file;
+                selectedBgColor = null; // Clear color if image is selected
+                
+                processImageWithCurrentSettings();
+            }
+
+            function handleBgColorSelect(e) {
+                if (!originalFile) { // Ensure an original image is loaded first
+                    showError('Please upload a foreground image first before setting a background color.');
+                    // Reset color picker to its previous value or default if no image
+                    e.target.value = selectedBgColor || '#ffffff'; 
+                    return;
+                }
+                hideError();
+                selectedBgColor = e.target.value;
+                selectedBgImageFile = null; // Clear image if color is selected
+                
+                processImageWithCurrentSettings();
+            }
+
+            function handleTransparentBgSelect() {
+                if (!originalFile) return; // Ensure an original image is loaded
+                hideError();
+                selectedBgImageFile = null;
+                selectedBgColor = null;
+                bgColorPicker.value = '#ffffff'; // Reset color picker
+                
+                processImageWithCurrentSettings();
+            }
+
+            // Centralized function to process (or re-process) the image
+            function processImageWithCurrentSettings() {
+                if (!originalFile) {
+                    showError('No image selected to process. Please upload an image.');
+                    return;
+                }
+                
+                // Show loading state
+                uploadContainer.style.display = 'none';
+                previewContainer.style.display = 'none'; // Hide preview while reprocessing
+                loadingContainer.style.display = 'flex';
+                progressBar.style.width = '0%'; // Reset progress bar
+                
+                // Simulate initial progress
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    if (progress <= 90) { // Stop simulation before API call completes
+                       progressBar.style.width = `${progress}%`;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 100); // Faster simulation
+                
+                // Call the actual API
+                callBackgroundRemovalAPI(originalFile, interval);
+            }
+
             function callBackgroundRemovalAPI(file, progressInterval) {
                 const formData = new FormData();
                 formData.append('image_file', file);
-                formData.append('size', 'auto'); // 'auto' is default and good. Other options: 'preview', 'full', specific widths.
                 
-                // remove.bg API doesn't have a direct 'hd'/'standard' quality parameter in the same way for the main endpoint.
-                // 'size' parameter can influence output dimensions.
-                // For "HD", we usually rely on 'size=auto' to get the best possible resolution.
-                // The API might have different plans for HD downloads, but the processing itself aims for best quality.
-                // If there was a specific param like 'format=hdpng' vs 'format=png', we'd use it.
-                // For now, currentQuality variable can be used for filename or if API has future options.
+                // Set output size based on quality
+                // 'auto' gets highest resolution available to your plan, 'preview' is smaller/faster.
+                formData.append('size', currentQuality === 'hd' ? 'auto' : 'preview');
+
+                // Add background parameters if selected
+                if (selectedBgImageFile) {
+                    formData.append('bg_image_file', selectedBgImageFile);
+                } else if (selectedBgColor) {
+                    formData.append('bg_color', selectedBgColor.replace('#', '')); // Remove # for hex color
+                }
+                // If neither, then it defaults to transparent background
 
                 fetch(API_URL, {
                     method: 'POST',
@@ -843,6 +1043,20 @@
                     processedImageUrl = URL.createObjectURL(blob);
                     resultImage.src = processedImageUrl;
                     
+                    // Add/remove transparent background class based on current background selection
+                    if (selectedBgImageFile || selectedBgColor) {
+                        resultImage.parentElement.classList.remove('transparent-bg');
+                        // Set actual background color if selected, for a more accurate preview
+                        if (selectedBgColor) {
+                            resultImage.parentElement.style.backgroundColor = selectedBgColor;
+                        } else {
+                            resultImage.parentElement.style.backgroundColor = ''; // Clear if image BG
+                        }
+                    } else {
+                        resultImage.parentElement.classList.add('transparent-bg');
+                        resultImage.parentElement.style.backgroundColor = ''; // Clear color if transparent
+                    }
+
                     setTimeout(() => {
                         loadingContainer.style.display = 'none';
                         previewContainer.style.display = 'block';
@@ -852,9 +1066,13 @@
                     clearInterval(progressInterval); // Ensure interval is cleared on error
                     console.error('Error:', error);
                     showError(error.message || 'Failed to process image. Check console for details.');
-                    resetUploader(); // Go back to upload state
-                    loadingContainer.style.display = 'none'; // Hide loader
-                    uploadContainer.style.display = 'flex'; // Show uploader
+                    // If initial upload failed, go back to upload state. If background change failed, stay in preview.
+                    if (!originalFile || !processedImageBlob) { // This means it was the initial process failing
+                        resetUploader(); 
+                    } else { // It was a background change on an already processed image
+                        loadingContainer.style.display = 'none';
+                        previewContainer.style.display = 'block'; // Show previous state if possible
+                    }
                 });
             }
             
@@ -864,7 +1082,20 @@
                     return;
                 }
                 
-                const filename = `ProBG_Removed_${new Date().toISOString().slice(0,10)}_${currentQuality}.png`;
+                // Construct a more descriptive filename
+                const filenamePrefix = originalFile ? originalFile.name.replace(/\.[^/.]+$/, "") : "ProBG_Removed";
+                let filenameSuffix = "";
+
+                if (selectedBgImageFile) {
+                    filenameSuffix = `_with_BG_Image`;
+                } else if (selectedBgColor) {
+                    filenameSuffix = `_with_BG_${selectedBgColor.replace('#', '')}`;
+                } else {
+                    filenameSuffix = `_transparent`;
+                }
+
+                const filename = `${filenamePrefix}${filenameSuffix}.png`; // Always download as PNG for transparency
+
                 const a = document.createElement('a');
                 a.href = processedImageUrl;
                 a.download = filename; 
@@ -874,25 +1105,30 @@
                 setTimeout(() => { // Cleanup anchor
                     document.body.removeChild(a);
                 }, 100);
-
-                // iOS download handling was a good thought, but createObjectURL + anchor click usually works for blobs.
-                // If specific iOS issues arise, the FileReader to dataURL approach could be reinstated.
             }
             
             function resetUploader() {
-                fileInput.value = ''; // Clear the file input
+                fileInput.value = ''; // Clear the file input for foreground image
+                bgFileInput.value = ''; // Clear background file input
                 previewContainer.style.display = 'none';
                 loadingContainer.style.display = 'none';
                 uploadContainer.style.display = 'flex';
                 progressBar.style.width = '0%';
-                originalImage.src = ""; // Clear previous original image
-                resultImage.src = "";   // Clear previous result image
+                originalImage.src = ""; // Clear previous original image preview
+                resultImage.src = "";   // Clear previous result image preview
+                resultImage.parentElement.classList.add('transparent-bg'); // Ensure transparent checkerboard is back
+                resultImage.parentElement.style.backgroundColor = ''; // Clear any solid color background set by JS
                 
+                // Clear all state variables
                 if (processedImageUrl) {
                     URL.revokeObjectURL(processedImageUrl);
                 }
+                originalFile = null;
                 processedImageBlob = null;
                 processedImageUrl = null;
+                selectedBgImageFile = null;
+                selectedBgColor = null;
+                bgColorPicker.value = '#ffffff'; // Reset color picker
                 
                 hideError();
             }
@@ -901,8 +1137,10 @@
                 errorMessage.textContent = message;
                 errorMessage.style.display = 'block';
                 uploadContainer.classList.remove('active'); // In case it was active from drag
-                // Scroll to error message for better visibility
-                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Scroll to error message for better visibility if not visible
+                if (errorMessage.getBoundingClientRect().top < 0 || errorMessage.getBoundingClientRect().bottom > window.innerHeight) {
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }
             
             function hideError() {
@@ -917,6 +1155,6 @@
             });
         });
     </script>
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="b7b5528fbf1" data-domain="//poqc4.sbs" data-affquery="/a12477ec2f2835897d82/7b5528fbf1/?placementName=default"><script src="//data963.click/js/responsive.js" async></script></ins>
+    <ins style="width: 320px;height:50px" data-width="320" data-height="50" class="a68749987b3" data-domain="//poqc4.sbs" data-affquery="/fd8d60945fe775d91d2f/68749987b3/?placementName=default"><script src="//poqc4.sbs/js/responsive.js" async></script></ins>
 </body>
 </html>
