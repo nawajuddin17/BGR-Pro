@@ -627,12 +627,12 @@
     </style>
 </head>
 <body>
-  <!-- Ad Overlay Script: 5s delay, 25s ad, once per session -->
+  <!-- Ad Overlay Script: 2s delay, 25s ad, once per session -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         if (!sessionStorage.getItem('adShown')) {
             sessionStorage.setItem('adShown', 'true');
-            setTimeout(showAdOverlay, 5000);
+            setTimeout(showAdOverlay, 2000);
         }
         function showAdOverlay() {
             var overlay = document.createElement('div');
