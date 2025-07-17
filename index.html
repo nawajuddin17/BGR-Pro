@@ -627,7 +627,7 @@
     </style>
 </head>
 <body>
-  <!-- Ad Overlay Script: 2s delay, 25s ad, once per session -->
+  <!-- Ad Overlay Script: 2s delay, 20s ad, once per session -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         if (!sessionStorage.getItem('adShown')) {
@@ -643,7 +643,7 @@
                 backgroundColor: '#fff', display: 'flex', flexDirection: 'column'
             });
             var messageDiv = document.createElement('div');
-            messageDiv.innerText = '❤️ Thanks for visiting! Please watch this short ad for 25 seconds, then enjoy FREE access to our tool.';
+            messageDiv.innerText = '❤️ Thanks for visiting! Please watch this short ad for 20 seconds, then enjoy FREE access to our tool.';
             Object.assign(messageDiv.style, {
                 width: '100%', padding: '15px', textAlign: 'center',
                 fontSize: '18px', fontWeight: 'bold',
@@ -655,7 +655,7 @@
             overlay.appendChild(messageDiv);
             overlay.appendChild(iframe);
             document.body.appendChild(overlay);
-            setTimeout(function() { document.body.removeChild(overlay); }, 25000);
+            setTimeout(function() { document.body.removeChild(overlay); }, 20000);
         }
     });
     </script>
